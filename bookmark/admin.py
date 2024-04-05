@@ -6,7 +6,7 @@ from bookmark.models import Bookmark
 # admin.site.register(Bookmark)
 @admin.register(Bookmark)
 class BookmarkAdmin(admin.ModelAdmin):
-    list_display=('id', 'title', 'url')
+    list_display=('id', 'title', 'url')         #관리자 페이지서 보여주는 형태 변경
 
 
 

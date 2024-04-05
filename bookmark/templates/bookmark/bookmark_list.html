@@ -6,8 +6,9 @@
 
 <ul>
     {% for bookmark in object_list %}
-    <li><a href="{% url 'bookmark:index' %}">{{ bookmark.title }}</a></li>
-    {# <li><a href="{% url 'bookmark:detail' bookmark.id %}">{{ bookmark.title }}</a></li> #}
-
+    {# <li><a href="{% url 'bookmark:index' %}">{{ bookmark.title }}</a></li> #}
+    <li><a href="{% url 'bookmark:detail' bookmark.id %}">{{ bookmark.title }}</a></li>   
     {% endfor %}
+    
 </ul>
+
