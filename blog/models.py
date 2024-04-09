@@ -1,8 +1,10 @@
 from django.db import models
 from django.urls import reverse
-
+from taggit.managers import TaggableManager    #taggit 추가
 # Create your models here.
 # id, title, slug, description, content, create_dt, modify_dt
+
+
 
 class Post(models.Model):
     title = models.CharField(verbose_name='TITLE', max_length=50)
@@ -11,6 +13,7 @@ class Post(models.Model):
     content = models.TextField("CONTENT")
     create_dt = models.DateTimeField("CREATE DATE", auto_now_add=True)
     modify_dt = models.DateTimeField("MODIFY DATE", auto_now=True)
+    tags = TaggableManager(blank=True) # taggit 추가
 
 
     class Meta:
@@ -30,3 +33,17 @@ class Post(models.Model):
     
     def get_next(self):
         return self.get_next_by_modify_dt()
+    
+
+'''
+Question, Choice 구조와 같다.
+class Comment(models.Model):
+    # user
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    comment = models.CharField(max_length=200)
+    # date
+'''
+
+
+#DISQUS .. short name : lion-django-prac
+

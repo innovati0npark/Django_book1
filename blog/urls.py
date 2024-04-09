@@ -19,6 +19,12 @@ urlpatterns = [
 
     path("archive/<int:year>/<str:month>/<int:day>/", views.PostDAV.as_view(), name="post_day_archive"),
 
-    path('archive/today/', views.PostTAV.as_view(), name='post_today_archive')
+    path('archive/today/', views.PostTAV.as_view(), name='post_today_archive'),
+    
+    path('tag/', views.TagCloudTV.as_view(), name='tag_cloud'),
+    path('tag/<str:tag>/', views.TaggedObjectLV.as_view(), name='tagged_object_list'),
+
+    path('search/', views.SearchFormView.as_view(), name='search'),   #get 방식으로 이페이지 엶음
+
 
 ]

@@ -19,6 +19,7 @@ class BookmarkDV(DetailView):
     # context_object_name = "object"
     
     
+    
     # def get_object(self):
     #generic view는 기본으로 설정된게 있어서 urls.py 만들때 규칙 따라야함.
         

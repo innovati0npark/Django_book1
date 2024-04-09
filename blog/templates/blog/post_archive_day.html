@@ -1,3 +1,12 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %} Lion of Judah {% endblock %}
+
+{% block content %}
+<div class="p-3 mb-2 bg-primary-subtle text-primary-emphasis card">
+<div class="card-body">
 <h1>Post Archives for {{ day|date:"N d, Y" }}</h1>
 
 <div>
@@ -8,4 +17,6 @@
         {% endfor %}
     </ul>
 </div>
-
+</div>
+</div>
+{% endblock %}

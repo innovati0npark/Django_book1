@@ -38,7 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bookmark.apps.BookmarkConfig',
-    'blog'
+    'blog',
+    'taggit.apps.TaggitAppConfig',
+    'taggit_templatetags2',
+    'photo',
 ]
 
 MIDDLEWARE = [
@@ -132,3 +135,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 import os
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media') #BASE_DIR/'media'
+
+TAGGIT_CASE_INSENSITIVE=True
+TAGGIT_LIMIT=50
+
+# DISQUS 설정
+DISQUS_SHORTNAME = 'lion-django-prac'
+DISQUS_MY_DOMAIN = 'http://127.0.0.1:8000'

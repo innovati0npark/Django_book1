@@ -1,9 +1,18 @@
-<h1>Archive List{# now "Y m d" %}</h1>
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %} Lion of Judah {% endblock %}
+
+{% block content %}
+<div class="p-3 mb-2 bg-primary-subtle text-primary-emphasis card">
+    <div class="card-body">
+    <h1>Archive List{# now "Y m d" %}</h1>
 
 
 <ul>
     {% for date in date_list %}
-    <li style="display: inline;"><a href="{% url 'blog:post_year_archive' date|date:'Y' %}"> Year-{{date|date:'Y'}} </a></li>
+    <button type="button" class="btn btn-secondary" style="display: inline;"><a style="color: white;" href="{% url 'blog:post_year_archive' date|date:'Y' %}"> Year-{{date|date:'Y'}} </a></button>
     {%endfor%}
 </ul>
 
@@ -18,10 +27,9 @@
         {% endfor %}
     </ul>
 </div>
-
+</div>
+</div>
 
 
 <br>
-
-{{date_list}}
-{{object_list}}
+{% endblock %}

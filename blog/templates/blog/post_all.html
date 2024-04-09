@@ -1,28 +1,44 @@
-<!-- {{posts}} -->
+{% extends 'base.html' %}
 
-<h1>BLOG POST LIST</h1>
+{% load static %}
+
+{% block title %} Lion of Judah {% endblock %}
+
+{% block content %}
+<br>
+<div class="p-3 mb-2 bg-primary-subtle text-primary-emphasis card">
+    <div class="card-body">
+    <h1>BLOG POST LIST</h1>
 <br>
 {% for post in posts %}
 <h3><a href="{{post.get_absolute_url}}">{{post.title}}</a> </h3>
 {#<h3><a href="{% url 'blog:post_detail' blog.id %}">{{ post.title }}</a></h3>#}
 
 {{post.modify_dt | date:"Y년 N d일"}}
-<p>{{post.content}}</p>
+<p class="text-primary">{{post.content}}</p>
 {% endfor %}
-
+</div>
+</div>
 <br>
 
-<div>
-    <span>
+<div class="text-bg-light p-3">
+    <nav aria-label="Page navigation example">
+    <ul class="pagination">
+    <span >
         {% if page_obj.has_previous %}
-            <a href="?page={{ page_obj.previous_page_number }}">PreviousPage</a>
+        <li class="page-item">
+            <a class="page-link" href="?page={{ page_obj.previous_page_number }}">PreviousPage</a>
         {% endif %}
     
         Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
 
         {% if page_obj.has_next %}
-            <a href="?page={{ page_obj.next_page_number }}">NextPage</a>
+            <a class="page-link" href="?page={{ page_obj.next_page_number }}">NextPage</a>
         {% endif %}
+        </li>
     </span>
-
+    </ul>
+</nav>
 </div>
+
+{% endblock %}
