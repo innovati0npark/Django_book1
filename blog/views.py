@@ -66,10 +66,11 @@ class PostTAV(TodayArchiveView):
 class TagCloudTV(TemplateView):
     template_name="taggit/taggit_cloud.html"
 
+
 class TaggedObjectLV(ListView):
     template_name='taggit/taggit_post_list.html'
     model = Post
-    
+
     def get_queryset(self):         #여러개 데이터 set 만드는 역할.
         return Post.objects.filter(tags__name=self.kwargs.get('tag'))
 

@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'taggit.apps.TaggitAppConfig',
     'taggit_templatetags2',
     'photo',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
@@ -142,3 +143,6 @@ TAGGIT_LIMIT=50
 # DISQUS 설정
 DISQUS_SHORTNAME = 'lion-django-prac'
 DISQUS_MY_DOMAIN = 'http://127.0.0.1:8000'
+
+#인증 10장
+LOGIN_REDIRECT_URL = '/'

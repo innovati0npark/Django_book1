@@ -30,6 +30,9 @@
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="{% url 'blog:index' %}">Blog</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url 'photo:index' %}">Photo</a>
+              </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Util
@@ -46,6 +49,35 @@
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
               <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
+
+
+            <ul class="navbar-nav ml-5 mr-5">
+              <li class="nav-item dropdown mx-1 btn btn-primary">
+                  {% if user.is_active %}
+                  <a class="nav-link dropdown-toggle text-white" href="#" data-bs-toggle="dropdown">
+                    <i class="fas fa-user"></i>&ensp;{% firstof user.get_short_name user.get_username %}&ensp;</a>
+                  <div class="dropdown-menu">
+
+                    <!-- form태그안에 감싸줘야지 logout 기능 정상구현가능 -->
+                  <form action="{% url 'logout' %}" method="post">      
+                      {% csrf_token %}
+                      <button type="submit" class="dropdown-item" >Logout</button>
+                  </form>
+
+                    <a class="dropdown-item" href="{% url 'password_change' %}">비밀번호 변경</a>
+                  </div>
+                  {% else %}
+                  <a class="nav-link dropdown-toggle text-white" href="#" data-bs-toggle="dropdown">
+                    <i class="fas fa-user"></i>&ensp;Anonymous&ensp;</a>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{% url 'login' %}">로그인</a>
+                    <a class="dropdown-item" href="{% url 'register' %}">등록</a>
+                  </div>
+                  {% endif %}
+              </li>
+          </ul>
+
+
           </div>
         </div>
       </nav>
